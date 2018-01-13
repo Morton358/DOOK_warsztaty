@@ -1,0 +1,40 @@
+.App{
+
+}
+
+.AddNew, .AddNewInput{
+  background-color: #82c7c1;
+}
+
+.AddNewInputTitle, .AddNewInputAuthor, .AddNewInputTags{
+  display: inline-block;
+  float: left;
+}
+
+
+.Filtr{
+
+}
+
+.Filtr h1{
+text-align: center;
+text-decoration: underline;
+font-family: sans-serif;
+}
+
+.List{
+
+}
+
+.ListItem {
+  background-color: #82c7c1;
+}
+
+.tag {
+  padding-right: 8px;
+}
+
+.ButtonDelete, .ButtonAdd{
+  margin-left: 90%;
+
+}
