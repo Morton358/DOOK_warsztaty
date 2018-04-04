@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddNew from './AddNew.js';
-import Filtr from './Filtr.js';
-import List from './List.js';
-import './App.css';
+import AddNew from '../../components/AddNew/AddNew';
+import Filtr from '../../components/Filtr/Filtr';
+import List from '../../components/List/List';
+import styles from './App.scss';
 
 class App extends Component {
     constructor(props) {
@@ -28,7 +28,6 @@ class App extends Component {
             ],
             alltags: {}
         };
-        let temptags = {};
     }
 
     getTags = () => {
@@ -92,7 +91,7 @@ class App extends Component {
     };
     render() {
         return (
-            <div className="App">
+            <div className={styles.App}>
                 <Filtr
                     getTags={this.getTags}
                     handleCheck={this.handleCheck}

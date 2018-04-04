@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Filtr.scss';
 
 const filtr = props => {
     return (
-        <div className="Filtr">
+        <div className={styles.Filtr}>
             {props.children}
             {props.getTags().map((elem, index) => {
                 return (

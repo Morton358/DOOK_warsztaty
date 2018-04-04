@@ -1,0 +1,23 @@
+%AddNewInputElement {
+    display: inline-block;
+    float: left;
+}
+
+.AddNew {
+    background-color: #d9eaff;
+    .AddNewInput {
+        .AddNewInputTitle {
+            @extend %AddNewInputElement;
+        }
+        .AddNewInputAuthor {
+            @extend %AddNewInputElement;
+        }
+        .AddNewInputTags {
+            @extend %AddNewInputElement;
+        }
+    }
+}
+
+.ButtonAdd {
+    margin-left: 90%;
+}
