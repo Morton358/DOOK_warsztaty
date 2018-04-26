@@ -26,6 +26,7 @@ class App extends Component {
                     tags: ['realizm', 'powieść', 'rosja']
                 }
             ],
+            checkedTags: [],
             alltags: {}
         };
     }
@@ -56,22 +57,17 @@ class App extends Component {
     //   console.log(this.state.alltags);
     // }
 
-    // handleCheck = (event, elem) => {
-    //   //const mergedtags = this.handleCheck();
-    //
-    //   // mergedtags.map((element) => {
-    //   //   return temptags[element] = true;
-    //   // })
-    //   if (event.target.checked) {
-    //     this.temptags[elem] = true;
-    //   }
-    //   if (!event.target.checked) {
-    //     this.temptags[elem] = false;
-    //   }
-    // this.setState({alltags: this.temptags})
-    // console.log(this.state.alltags);
-    // // return checkedtag;
-    // }
+    handleCheck = (event, elem) => {
+        event.preventDefault();
+        let temp = [...this.state.checkedTags];
+        console.log(elem);
+        if (temp.includes(String(elem))) {
+            temp = temp.filter(el => el !== elem);
+        } else {
+            temp = temp.push(elem);
+        }
+        this.setState({checkedTags: temp});
+    };
 
     onDelete = index => {
         let temp = [...this.state.items];
@@ -90,6 +86,19 @@ class App extends Component {
         this.setState({ items: temp });
     };
     render() {
+        let itemsForRender = [...this.state.items];
+        const checkedTags = [...this.state.checkedTags];
+        if (checkedTags.length !== 0) {
+            const temp = itemsForRender.filter(el =>
+                el.tags.some(
+                    tag =>
+                        checkedTags.find(
+                            checkedTag => checkedTag === tag
+                        ) !== undefined
+                )
+            );
+            itemsForRender = temp;
+        }
         return (
             <div className={styles.App}>
                 <Filtr
@@ -101,7 +110,7 @@ class App extends Component {
                     <h1>My Library</h1>{' '}
                 </Filtr>
                 <List
-                    items={this.state.items}
+                    items={itemsForRender}
                     ondelete={this.onDelete}
                     alltags={this.state.alltags}
                 />

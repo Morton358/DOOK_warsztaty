@@ -9,9 +9,8 @@ const filtr = props => {
                 return (
                     <label key={index}>
                         <input
-                            type="checkbox" //onChange={(event) =>
-                            //props.handleCheck(event, elem)}
-                            checked
+                            type="checkbox"
+                            onChange={event => props.handleCheck(event, elem)}
                         />
                         {JSON.stringify(elem)}
                     </label>
